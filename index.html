@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Timely Weather</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+				<link rel="stylesheet" href="assets/css/style.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--link href="assets/css/style.css" rel="stylesheet" /-->
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	
+		<!--location-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	
+<!--menu-->
+
+	</head>
+	<body class="is-loading">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main">
+						<header>
+						<div id="clock" class="light">
+							<div class="display">
+									<div class="weekdays"></div>
+									<div class="ampm"></div>
+									<div class="alarm"></div>
+									<div class="digits"></div>
+								</div>
+							</div>
+							<div class="button-holder">
+								<a class="alarm-button"></a>
+							</div>
+							<!--location-->
+								<div><span id="state" style="font-size:50px;"></span></div> 
+						</header>
+						
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="copyright">
+							<li>Tess Griffiths</li><li><a href="http://tessgmddn352.tumblr.com">Design</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+			<script>
+				if ('addEventListener' in window) {
+					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+				}
+			</script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+		<script src="assets/js/script.js"></script>
+
+			<script>
+			$.getJSON('https://geoip-db.com/json/geoip.php?jsonp=?') 
+         .done (function(location)
+         {
+            $('#country').html(location.country_name);
+            $('#state').html(location.state);
+            $('#city').html(location.city);
+            $('#latitude').html(location.latitude);
+            $('#longitude').html(location.longitude);
+            $('#ip').html(location.IPv4);               
+         });
+    </script>
+
+<!--menu-->
+
+	</body>
+</html>
